@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "kinesis:GetRecords",
+                "kinesis:GetShardIterator",
+                "kinesis:DescribeStream",
+                "kinesis:ListStreams"
+            ],
+            "Resource": "<ARN of your rekognition stream processor>",
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "kinesis:ListStreams"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        }
+    ]
+}
