@@ -14,4 +14,4 @@ A distributed system that authenticates people and provides them with access to 
 
 ## Architecture ##
 
-https://github.com/rahulgarg97/SmartDoor-Authentication-System-AWS/blob/main/SmartDoor_Authentication_System.png
+https://github.com/vg2134/Smart-Door-Authentication-System/blob/main/SmartDoor_Authentication_System.png
