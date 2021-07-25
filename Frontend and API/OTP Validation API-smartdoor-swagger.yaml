@@ -1,0 +1,144 @@
+---
+swagger: "2.0"
+info:
+  description: "OTP Validation API"
+  version: "1.0.0"
+  title: "OTP Validation API"
+host: "8iy1bcszt1.execute-api.us-west-2.amazonaws.com"
+basePath: "/smartdoor"
+schemes:
+- "https"
+paths:
+  /otp_validation:
+    post:
+      operationId: "validateOTP"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "AuthRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/AuthRequest"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/AuthResponse"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Error"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Error"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+        500:
+          description: "500 response"
+        403:
+          description: "403 response"
+  /owner:
+    post:
+      operationId: "sendMessage"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "OwnerRequest"
+        required: true
+        schema:
+          $ref: "#/definitions/OwnerRequest"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/OwnerResponse"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Error"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Error"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+        500:
+          description: "500 response"
+        403:
+          description: "403 response"
+definitions:
+  AuthRequest:
+    type: "object"
+    properties:
+      user-id:
+        type: "string"
+      otp:
+        type: "string"
+  OwnerRequest:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      phone:
+        type: "string"
+  OwnerResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+  AuthResponse:
+    type: "object"
+    properties:
+      user-name:
+        type: "string"
+      auth-status:
+        type: "string"
+      message:
+        type: "string"

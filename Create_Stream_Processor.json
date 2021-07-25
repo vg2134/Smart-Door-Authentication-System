@@ -1,0 +1,20 @@
+{
+       "Name": "streamProcessorForBlog",
+       "Input": {
+              "KinesisVideoStream": {
+                     "Arn": "<ARN of your Kinesis Video Stream>"
+              }
+       },
+       "Output": {
+              "KinesisDataStream": {
+                     "Arn": "<ARN of your Kinesis Data Stream>"
+              }
+       },
+       "RoleArn": "<ARN of your role having permissions for Kinesis Video Stream and Kinesis Data Stream>",
+       "Settings": {
+              "FaceSearch": {
+                     "CollectionId": "rekVideoBlog",
+                     "FaceMatchThreshold": 85.5
+              }
+       }
+}
